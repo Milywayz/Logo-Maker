@@ -1,18 +1,20 @@
 const { Circle, Square, Triangle, Shape } = require('./lib/shapes.js')
 const inquirer = require("inquirer");
 const fs = require("fs/promises")
+const Svg = require("./lib/svg.js");
+const { writeFile } = require('fs');
 
 const startPrompt = async () => {
-    let result;
+
     try {
-      const initialPrompt =  await inquirer
+        const initialPrompt = await inquirer
             .prompt([
                 {
                     type: 'list',
                     name: 'shape',
                     message: 'What shape would you like to use?',
                     choices: ['circle', 'square', 'triangle'],
-    
+
                 },
                 {
                     type: 'input',
@@ -30,36 +32,46 @@ const startPrompt = async () => {
                     message: 'what shape color you would like to use',
                 },
             ])
-        
 
-            // console.log(initialPrompt.shapeColor)
-            // switch (initialPrompt.shape) {
-            //     case "circle":
-            //         result = new Circle(initialPrompt.shapeColor, 100)
-                    
-            //         break;
-            //     case "square":
-            //         result = new Square(initialPrompt.shapeColor, 50, 50)
+        let shape;
+        // console.log(initialPrompt.shapeColor)
+        switch (initialPrompt.shape) {
 
-            //         break;
-            //     case "triangle":
-            //         result = new Triangle(initialPrompt.shapeColor, 50, 50)
+            case "circle":
+                console.log(initialPrompt)
+                shape = new Circle()
 
-            //         break;
-            
-            //     default:
-            //         throw Error("Error creating the SVG Shape")
-            // }
-        
+                break;
+            case "square":
+                result = new Square(initialPrompt.shapeColor)
+
+                break;
+            case "triangle":
+                result = new Triangle(initialPrompt.shapeColor)
+
+                break;
+
+            default:
+                throw Error("Error creating the SVG Shape")
+        }
+        shape.setColor(initialPrompt.shapeColor)
+        console.log(shape)
+        const svg = new Svg()
+        svg.setShape(shape)
+        svg.setText(initialPrompt.text,initialPrompt.textColor)
+        console.log(svg)
+
+        fs.writeFile(Svgc)
+
     } catch (err) {
-       console.log(err) 
-       process.exit(1)
+        console.log(err)
+        process.exit(1)
     }
 }
 
 
 
-function main(){
+function main() {
 
     startPrompt()
 

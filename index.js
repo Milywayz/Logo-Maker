@@ -43,11 +43,11 @@ const startPrompt = async () => {
 
                 break;
             case "square":
-                result = new Square(initialPrompt.shapeColor)
+                shape = new Square()
 
                 break;
             case "triangle":
-                result = new Triangle(initialPrompt.shapeColor)
+                shape = new Triangle()
 
                 break;
 
@@ -59,9 +59,11 @@ const startPrompt = async () => {
         const svg = new Svg()
         svg.setShape(shape)
         svg.setText(initialPrompt.text,initialPrompt.textColor)
-        console.log(svg)
+        console.log(svg.render())
 
-        fs.writeFile(Svgc)
+        
+        // fs.writeFile("shape.svg", svg.render())
+
 
     } catch (err) {
         console.log(err)

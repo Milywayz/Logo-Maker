@@ -1,5 +1,5 @@
 // Requiring information from classes and package.json
-const { Circle, Square, Triangle, Shape } = require('./lib/shapes.js')
+const { Circle, Square, Triangle } = require('./lib/shapes.js')
 const inquirer = require("inquirer");
 const fs = require("fs")
 const Svg = require("./lib/svg.js");
@@ -58,7 +58,7 @@ const startPrompt = async () => {
         }
         // Rendering in all of the other input from initialPrompt
         shape.setColor(initialPrompt.shapeColor)
-        console.log(shape)
+        console.log(initialPrompt.shapeColor)
         const svg = new Svg()
         svg.setShape(shape)
         svg.setText(initialPrompt.text, initialPrompt.textColor)

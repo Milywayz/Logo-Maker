@@ -35,7 +35,7 @@ const startPrompt = async () => {
                 },
             ])
 
-            // Rendering in what shape you picked from shapes.js classes
+        // Rendering in what shape you picked from shapes.js classes
         let shape;
         switch (initialPrompt.shape) {
 
@@ -61,13 +61,13 @@ const startPrompt = async () => {
         console.log(shape)
         const svg = new Svg()
         svg.setShape(shape)
-        svg.setText(initialPrompt.text,initialPrompt.textColor)
+        svg.setText(initialPrompt.text, initialPrompt.textColor)
         console.log(svg.render())
 
         // Creating the file of shape.svg
-        fs.writeFile("shape.svg", svg.render(), (err) =>{
-            if(err) 
-            console.log(err)
+        fs.writeFile("shape.svg", svg.render(), (err) => {
+            if (err)
+                console.log(err)
         })
 
         // catching any errors

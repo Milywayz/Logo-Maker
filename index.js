@@ -1,9 +1,11 @@
+// Requiring information from classes and package.json
 const { Circle, Square, Triangle, Shape } = require('./lib/shapes.js')
 const inquirer = require("inquirer");
-const fs = require("fs/promises")
+const fs = require("fs")
 const Svg = require("./lib/svg.js");
 const { writeFile } = require('fs');
 
+// Prompts inputs for creating the shapes
 const startPrompt = async () => {
 
     try {
@@ -33,8 +35,8 @@ const startPrompt = async () => {
                 },
             ])
 
+            // Rendering in what shape you picked from shapes.js classes
         let shape;
-        // console.log(initialPrompt.shapeColor)
         switch (initialPrompt.shape) {
 
             case "circle":
@@ -54,6 +56,7 @@ const startPrompt = async () => {
             default:
                 throw Error("Error creating the SVG Shape")
         }
+        // Rendering in all of the other input from initialPrompt
         shape.setColor(initialPrompt.shapeColor)
         console.log(shape)
         const svg = new Svg()
@@ -61,10 +64,13 @@ const startPrompt = async () => {
         svg.setText(initialPrompt.text,initialPrompt.textColor)
         console.log(svg.render())
 
-        
-        // fs.writeFile("shape.svg", svg.render())
+        // Creating the file of shape.svg
+        fs.writeFile("shape.svg", svg.render(), (err) =>{
+            if(err) 
+            console.log(err)
+        })
 
-
+        // catching any errors
     } catch (err) {
         console.log(err)
         process.exit(1)
@@ -72,11 +78,10 @@ const startPrompt = async () => {
 }
 
 
-
+// To start the functions when you type npm start
 function main() {
 
     startPrompt()
 
 }
-
 main();

@@ -1,7 +1,6 @@
 // Requiring information from classes and package.json
 const { Circle, Square, Triangle } = require('./lib/shapes.js')
 const inquirer = require("inquirer");
-const fs = require("fs")
 const Svg = require("./lib/svg.js");
 const { writeFile } = require('fs');
 
@@ -56,14 +55,16 @@ const startPrompt = async () => {
                 throw Error("Error creating the SVG Shape")
         }
         // Rendering in all of the other input from initialPrompt
-        shape.setColor(initialPrompt.shapeColor)
+        if (initialPrompt.shapeColor !== ""){
+            shape.setColor(initialPrompt.shapeColor)
+        }
         const svg = new Svg()
         svg.setShape(shape)
         svg.setText(initialPrompt.text, initialPrompt.textColor)
         console.log("Generated logo.svg")
 
         // Creating the file of shape.svg
-        fs.writeFile("logo.svg", svg.render(), (err) => {
+        writeFile("logo.svg", svg.render(), (err) => {
             if (err)
                 console.log(err)
         })

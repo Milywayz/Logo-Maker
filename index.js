@@ -65,7 +65,7 @@ const startPrompt = async () => {
         console.log(svg.render())
 
         // Creating the file of shape.svg
-        fs.writeFile("shape.svg", svg.render(), (err) => {
+        fs.writeFile("logo.svg", svg.render(), (err) => {
             if (err)
                 console.log(err)
         })

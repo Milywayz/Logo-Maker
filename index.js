@@ -40,7 +40,6 @@ const startPrompt = async () => {
         switch (initialPrompt.shape) {
 
             case "circle":
-                console.log(initialPrompt)
                 shape = new Circle()
 
                 break;
@@ -58,11 +57,10 @@ const startPrompt = async () => {
         }
         // Rendering in all of the other input from initialPrompt
         shape.setColor(initialPrompt.shapeColor)
-        console.log(initialPrompt.shapeColor)
         const svg = new Svg()
         svg.setShape(shape)
         svg.setText(initialPrompt.text, initialPrompt.textColor)
-        console.log(svg.render())
+        console.log("Generated logo.svg")
 
         // Creating the file of shape.svg
         fs.writeFile("logo.svg", svg.render(), (err) => {

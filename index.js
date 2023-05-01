@@ -4,6 +4,14 @@ const inquirer = require("inquirer");
 const Svg = require("./lib/svg.js");
 const { writeFile } = require('fs');
 
+const textLength = async (input) => {
+    if (input.length > 4 || input.length === 0){
+        
+        return "You must use 1-3 Characters only for text!"
+    }
+    return true
+}
+
 // Prompts inputs for creating the shapes
 const startPrompt = async () => {
 
@@ -21,6 +29,7 @@ const startPrompt = async () => {
                     type: 'input',
                     name: 'text',
                     message: 'What text would you like to in your shape?(up to 3 Characters only)',
+                    validate: textLength
                 },
                 {
                     type: 'input',

@@ -19,9 +19,11 @@ Inquire and Jet is installed into this project for functioning
 
 ## Usage
 
-Provide instructions and examples for use. Include screenshots as needed.
+![alt text](/Images/Circle-Image.png)
+![alt text](/Images/Square-Image.png)
+![alt text](/Images/Triangle-Image.png)
+[Click Here to Watch the Tutorial](https://watch.screencastify.com/v/oOUO5DzX46odDXFnXfOW)
 
-![alt text](https://watch.screencastify.com/v/oOUO5DzX46odDXFnXfOW)
 
 ## License
 

@@ -4,7 +4,7 @@ const inquirer = require("inquirer");
 const Svg = require("./lib/svg.js");
 const { writeFile } = require('fs');
 
-const textLength = async (input) => {
+const textLength = (input) => {
     if (input.length > 4 || input.length === 0){
         
         return "You must use 1-3 Characters only for text!"

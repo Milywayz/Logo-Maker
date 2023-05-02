@@ -21,7 +21,7 @@ Inquire and Jet is installed into this project for functioning
 
 Provide instructions and examples for use. Include screenshots as needed.
 
-![alt text](assets/images/screenshot.png)
+![alt text](https://watch.screencastify.com/v/oOUO5DzX46odDXFnXfOW)
 
 ## License
 
